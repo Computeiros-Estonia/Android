@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">libraryModel</string>
+    <string name="publisher">Editora</string>
+    <string name="publicationYear">Ano de Publicação</string>
+    <string name="author">Autor</string>
+    <string name="title">Titulo</string>
+    <string name="create">Create</string>
+    <string name="read">Read</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="todo">TODO</string>
+    <string name="done">done</string>
+    <string name="appName">Compendium</string>
+</resources>
