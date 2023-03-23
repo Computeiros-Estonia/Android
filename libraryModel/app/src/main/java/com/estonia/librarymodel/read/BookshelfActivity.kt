@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.estonia.librarymodel.R
 import com.estonia.librarymodel.model.Book
+import com.estonia.librarymodel.model.room.RoomDatabaseInstance
 
 
 class BookshelfActivity : AppCompatActivity() {
@@ -16,13 +17,13 @@ class BookshelfActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bookshelf)
 
-        // TODO - Aqui você deve recuperar o Dao que permite acessar a entidade Book
+        val compendiumDao = RoomDatabaseInstance.getInstance(this).getCompendiumDao()
 
         val bookRecyclerView: RecyclerView = findViewById(R.id.shelf_recyclerView)
         val bookshelfAdapter = BookshelfAdapter()
         bookRecyclerView.adapter = bookshelfAdapter
 
-        // TODO - Aqui você deve chamar o método do Dao que faz a leitura da entidade no banco
+        bookList = compendiumDao.getBookList()
         if (::bookList.isInitialized) {
             bookList.observe(this@BookshelfActivity) { list ->
                 bookshelfAdapter.setBookList(list)

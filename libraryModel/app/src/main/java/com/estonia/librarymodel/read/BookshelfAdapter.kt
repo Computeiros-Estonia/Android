@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.estonia.librarymodel.R
 import com.estonia.librarymodel.model.Book
+import com.estonia.librarymodel.model.room.RoomDatabaseInstance
 import com.estonia.librarymodel.update.EditBookActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -58,7 +59,7 @@ class BookshelfAdapter: RecyclerView.Adapter<BookshelfAdapter.BookViewHolder>() 
         private val publisherText: TextView = itemView.findViewById(R.id.book_publisher)
         private val deleteButton: ImageView = itemView.findViewById(R.id.delete_button)
 
-        // TODO - Aqui você deve recuperar o Dao que permite acessar a entidade Book
+        private val compendiumDao = RoomDatabaseInstance.getInstance(itemView.context).getCompendiumDao()
 
         fun bind(book: Book) {
             titleText.text = book.titulo
@@ -74,7 +75,7 @@ class BookshelfAdapter: RecyclerView.Adapter<BookshelfAdapter.BookViewHolder>() 
 
             deleteButton.setOnClickListener {
                 CoroutineScope(Dispatchers.Main).launch {
-                    // TODO - Aqui você deve chamar o método do Dao que apaga a entidade no banco
+                    compendiumDao.delete(book)
                     this@BookshelfAdapter.removeBook(book)
                 }
             }

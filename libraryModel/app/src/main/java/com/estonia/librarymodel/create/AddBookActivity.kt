@@ -6,6 +6,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.estonia.librarymodel.R
 import com.estonia.librarymodel.model.Book
+import com.estonia.librarymodel.model.room.RoomDatabaseInstance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ class AddBookActivity : AppCompatActivity() {
         val formPublisher: EditText = findViewById(R.id.formsPublisher)
         val formPublicationYear: EditText = findViewById(R.id.formsPublicationYear)
 
-        // TODO - Aqui você deve recuperar o Dao que permite acessar a entidade Book
+        val compendiumDao = RoomDatabaseInstance.getInstance(this).getCompendiumDao()
 
         val buttonCreate: Button = findViewById(R.id.buttonDone)
         buttonCreate.setOnClickListener {
@@ -33,7 +34,7 @@ class AddBookActivity : AppCompatActivity() {
                 formPublicationYear.text.toString()
             )
             CoroutineScope(Dispatchers.Main).launch {
-                // TODO - Aqui você deve chamar o método do Dao que grava a entidade no banco
+                compendiumDao.insert(newBook)
             }
             finish()
         }
