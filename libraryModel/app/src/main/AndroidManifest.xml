@@ -22,11 +22,15 @@
         </activity>
 
         <activity
-            android:name=".read.Bookshelf">
+            android:name=".read.BookshelfActivity">
         </activity>
 
         <activity
-            android:name=".update.AddBook">
+            android:name=".create.AddBookActivity">
+        </activity>
+
+        <activity
+            android:name=".update.EditBookActivity">
         </activity>
 
     </application>

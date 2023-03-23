@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import com.estonia.librarymodel.R
-import com.estonia.librarymodel.update.AddBook
+import com.estonia.librarymodel.read.BookshelfActivity
+import com.estonia.librarymodel.create.AddBookActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,12 +16,14 @@ class MainActivity : AppCompatActivity() {
 
         val buttonCreate:Button = findViewById(R.id.buttonCreate)
         buttonCreate.setOnClickListener{
-            val intent = Intent(this@MainActivity, AddBook::class.java)
+            val intent = Intent(this@MainActivity, AddBookActivity::class.java)
             startActivity(intent)
             //Toast.makeText(this@MainActivity, "Create!", Toast.LENGTH_SHORT).show()
         }
         val buttonRead:Button = findViewById(R.id.buttonRead)
         buttonRead.setOnClickListener{
+            val intent = Intent(this@MainActivity, BookshelfActivity::class.java)
+            startActivity(intent)
         }
         val buttonUpdate:Button = findViewById(R.id.buttonUpdate)
         buttonUpdate.setOnClickListener{
