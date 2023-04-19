@@ -49,10 +49,10 @@ class EditBookActivity: AppCompatActivity() {
         CoroutineScope(Dispatchers.Main).launch {
             val book = compendiumDao.getBook(bookIndex)
 
-            formTitle.setText(book.titulo)
-            formAuthor.setText(book.autor)
-            formPublisher.setText(book.editora)
-            formPublicationYear.setText(book.ano)
+            formTitle.setText(book.title)
+            formAuthor.setText(book.author)
+            formPublisher.setText(book.publisher)
+            formPublicationYear.setText(book.publicationYear)
         }
     }
 

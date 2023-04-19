@@ -62,10 +62,10 @@ class BookshelfAdapter: RecyclerView.Adapter<BookshelfAdapter.BookViewHolder>() 
         private val compendiumDao = RoomDatabaseInstance.getInstance(itemView.context).getCompendiumDao()
 
         fun bind(book: Book) {
-            titleText.text = book.titulo
-            yearText.text = book.ano
-            authorText.text = book.autor
-            publisherText.text = book.editora
+            titleText.text = book.title
+            yearText.text = book.publicationYear
+            authorText.text = book.author
+            publisherText.text = book.publisher
 
             editButton.setOnClickListener {
                 val intent = Intent(itemView.context, EditBookActivity::class.java)

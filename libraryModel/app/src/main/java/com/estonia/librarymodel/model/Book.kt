@@ -5,10 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Book (
+data class Book(
     @PrimaryKey(autoGenerate = true) var uid: Int = 0,
-    @ColumnInfo(name = "titulo") var titulo: String? = null,
-    @ColumnInfo(name = "autor") var autor: String? = null,
-    @ColumnInfo(name = "editora") var editora: String? = null,
-    @ColumnInfo(name = "ano") var ano: String? = null
+    @ColumnInfo(name = "Titulo") var title: String? = null,
+    @ColumnInfo(name = "Autor") var author: String? = null,
+    @ColumnInfo(name = "Editora") var publisher: String? = null,
+    @ColumnInfo(name = "Ano") var publicationYear: String? = null
 )

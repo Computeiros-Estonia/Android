@@ -4,59 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".titleScreen.MainActivity">
+    tools:context=".titleScreen.MainActivity"
+    android:background="@drawable/compendium_background">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/estonia_logo"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/todo" />
     <Button
         android:id="@+id/buttonCreate"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/create"
         android:backgroundTint="@color/blue_estonian"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRead"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonRead"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonRead"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65999997" />
 
     <Button
         android:id="@+id/buttonRead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/read"
         android:backgroundTint="@color/blue_estonian"
-        app:layout_constraintBottom_toTopOf="@+id/buttonUpdate"
-        app:layout_constraintEnd_toEndOf="@+id/buttonCreate"
-        app:layout_constraintStart_toStartOf="@+id/buttonCreate" />
-
-    <Button
-        android:id="@+id/buttonUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/update"
-        android:backgroundTint="@color/blue_estonian"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDelete"
-        app:layout_constraintEnd_toEndOf="@+id/buttonRead"
-        app:layout_constraintStart_toStartOf="@+id/buttonRead" />
-
-    <Button
-        android:id="@+id/buttonDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        android:text="@string/delete"
-        android:backgroundTint="@color/blue_estonian"
+        android:text="@string/consult_your_library"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonUpdate"
-        app:layout_constraintStart_toStartOf="@+id/buttonUpdate" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCreate"
+        app:layout_constraintVertical_bias="0.16000003" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

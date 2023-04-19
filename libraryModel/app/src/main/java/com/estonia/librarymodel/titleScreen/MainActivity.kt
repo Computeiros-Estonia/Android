@@ -25,14 +25,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, BookshelfActivity::class.java)
             startActivity(intent)
         }
-        val buttonUpdate:Button = findViewById(R.id.buttonUpdate)
-        buttonUpdate.setOnClickListener{
-            Toast.makeText(this@MainActivity, "Update!", Toast.LENGTH_SHORT).show()
-        }
-        val buttonDelete:Button = findViewById(R.id.buttonDelete)
-        buttonDelete.setOnClickListener{
-            Toast.makeText(this@MainActivity, "Delete!", Toast.LENGTH_SHORT).show()
-        }
     }
 
 }
