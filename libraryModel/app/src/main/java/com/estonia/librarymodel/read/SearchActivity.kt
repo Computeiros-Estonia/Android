@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.estonia.librarymodel.R
 import com.estonia.librarymodel.model.dto.QueryResultDTO
+import com.estonia.librarymodel.network.RetrofitClient
+import com.estonia.librarymodel.network.SearchService
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -25,9 +27,8 @@ class SearchActivity : AppCompatActivity() {
 
         val searchEditText = findViewById<TextInputEditText>(R.id.search_edit_text)
 
-        // TODO - Você precisa recuperar o cliente retrofit para realizar chamadas em rede
-
-        // TODO - Você precisa recuperar o serviço que permite acessar o endpoint remoto
+        val retrofitInstance = RetrofitClient.getRetrofitInstance()
+        val searchService = retrofitInstance.create(SearchService::class.java)
 
         val searchResultsRecyclerView = findViewById<RecyclerView>(R.id.search_results)
         val searchAdapter = SearchAdapter()
@@ -47,10 +48,8 @@ class SearchActivity : AppCompatActivity() {
                 loadingSpinner.visibility = View.VISIBLE
                 withContext(Dispatchers.IO) {
                     val queryUrl = URLEncoder.encode(queryInput, "UTF-8")
-                    // TODO - Aqui você deve usar o serviço para acessar a URL de busca,
-                    // e converter o resultado para um objeto QueryResultDTO
-                    val response: Response<QueryResultDTO>? = null
-                    val results: QueryResultDTO? = null
+                    val response: Response<QueryResultDTO> = searchService.searchQuery(queryUrl)
+                    val results: QueryResultDTO? = response.body()
                     results?.let {
                         withContext(Dispatchers.Main) {
                             searchAdapter.setResultList(results.docs)
