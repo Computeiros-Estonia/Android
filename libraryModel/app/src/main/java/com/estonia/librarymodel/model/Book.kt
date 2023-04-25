@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Book(
-    @PrimaryKey(autoGenerate = true) var uid: Int = 0,
+    @PrimaryKey var key: String,
     @ColumnInfo(name = "Titulo") var title: String? = null,
     @ColumnInfo(name = "Autor") var author: String? = null,
     @ColumnInfo(name = "Editora") var publisher: String? = null,

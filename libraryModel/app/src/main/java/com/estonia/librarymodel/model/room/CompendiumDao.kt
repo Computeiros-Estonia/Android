@@ -6,11 +6,11 @@ import com.estonia.librarymodel.model.Book
 
 @Dao
 interface CompendiumDao {
-    @Query("SELECT * FROM Book ORDER BY uid DESC")
+    @Query("SELECT * FROM Book ORDER BY key DESC")
     fun getBookList(): LiveData<List<Book>>
 
-    @Query("SELECT * FROM Book where uid = :bookUid ")
-    suspend fun getBook(bookUid: Int): Book
+    @Query("SELECT * FROM Book WHERE key = :key ")
+    suspend fun getBook(key: String): Book?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(book: Book)

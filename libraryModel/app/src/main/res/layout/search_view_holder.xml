@@ -32,18 +32,18 @@
         android:ellipsize="start"
         app:layout_constraintTop_toTopOf="@id/book_title"
         app:layout_constraintBottom_toBottomOf="@id/book_title"
-        app:layout_constraintEnd_toStartOf="@id/delete_book_button"
+        app:layout_constraintEnd_toStartOf="@id/add_book_button"
         app:layout_constraintStart_toEndOf="@id/book_title"
         tools:text="1950"/>
 
     <ImageButton
-        android:id="@+id/delete_book_button"
+        android:id="@+id/add_book_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:backgroundTint="@color/blue_estonian"
         app:tint="@color/white"
-        app:srcCompat="@drawable/ic_delete_24"
+        app:srcCompat="@drawable/ic_add_24"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

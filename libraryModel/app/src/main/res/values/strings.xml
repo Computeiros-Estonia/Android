@@ -11,6 +11,7 @@
     <string name="todo">TODO</string>
     <string name="done">done</string>
     <string name="appName">Compendium</string>
-    <string name="add">Adicione um Novo Livro</string>
+    <string name="search_book">Busque por Livros</string>
+    <string name="add_book">Adicione um Novo Livro</string>
     <string name="consult_your_library">Consulte sua Biblioteca</string>
 </resources>

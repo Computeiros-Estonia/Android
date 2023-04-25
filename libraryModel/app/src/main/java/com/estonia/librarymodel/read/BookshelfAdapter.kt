@@ -1,6 +1,5 @@
 package com.estonia.librarymodel.read
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.estonia.librarymodel.R
 import com.estonia.librarymodel.model.Book
 import com.estonia.librarymodel.model.room.RoomDatabaseInstance
-import com.estonia.librarymodel.update.EditBookActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -54,10 +52,9 @@ class BookshelfAdapter: RecyclerView.Adapter<BookshelfAdapter.BookViewHolder>() 
 
         private val titleText: TextView = itemView.findViewById(R.id.book_title)
         private val yearText: TextView = itemView.findViewById(R.id.book_year)
-        private val editButton: ImageView = itemView.findViewById(R.id.edit_button)
+        private val deleteButton: ImageView = itemView.findViewById(R.id.delete_book_button)
         private val authorText: TextView = itemView.findViewById(R.id.book_author)
         private val publisherText: TextView = itemView.findViewById(R.id.book_publisher)
-        private val deleteButton: ImageView = itemView.findViewById(R.id.delete_button)
 
         private val compendiumDao = RoomDatabaseInstance.getInstance(itemView.context).getCompendiumDao()
 
@@ -66,12 +63,6 @@ class BookshelfAdapter: RecyclerView.Adapter<BookshelfAdapter.BookViewHolder>() 
             yearText.text = book.publicationYear
             authorText.text = book.author
             publisherText.text = book.publisher
-
-            editButton.setOnClickListener {
-                val intent = Intent(itemView.context, EditBookActivity::class.java)
-                intent.putExtra(EditBookActivity.BOOK_INDEX, book.uid)
-                itemView.context.startActivity(intent)
-            }
 
             deleteButton.setOnClickListener {
                 CoroutineScope(Dispatchers.Main).launch {
